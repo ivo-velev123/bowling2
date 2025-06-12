@@ -14,7 +14,6 @@ class TestCalcScore(unittest.TestCase):
     def test_does_double_strike(self):
         self.assertEqual(calc_score("X X 23 33"), 51)
 
-# class TestHelperMethods(unittest.TestCase):
-#     def test_does_check_X(self):
-#         self.assertEqual(check_Strike("X"), 10)
-    
+class TestEdgeCases(unittest.TestCase):
+    def test_does_end_X(self):
+        self.assertEqual(calc_score("11 11 11 X"), 16)

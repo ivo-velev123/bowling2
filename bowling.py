@@ -7,11 +7,14 @@ def calc_score(frames):
         
         if frames[i] == "X":
             #if the next roll is a strike consider it a double
-            if frames[i+1] == "X":
-                total_score += 20 + (int(frames[i+2]) + int(frames[i+3]))
-            #otherwise score the strike normally
+            if i != (len(frames) - 1):
+                if frames[i+1] == "X":
+                    total_score += 20 + (int(frames[i+2]) + int(frames[i+3]))
+                #otherwise score the strike normally
+                else:
+                    total_score += 10 + (int(frames[i+1]) + int(frames[i+2]))
             else:
-                total_score += 10 + (int(frames[i+1]) + int(frames[i+2]))
+                total_score += 10
         #check if the roll is a spare
         elif frames[i] == "/":
             #if the roll is a spare calculate the value of the marking and add it to the total score.
